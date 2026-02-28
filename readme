@@ -1,0 +1,36 @@
+# MaxisLiquid
+
+MaxisLiquid is a personal financial operations dashboard.  
+It centralizes my trading activity, portfolio tracking, watchlists, and real-life expenses into a single system.
+
+The goal is visibility and decision quality.  
+I do not want information split across broker apps, exchange apps, spreadsheets, and notes.
+
+This is not a trading bot and not an auto-trader.  
+It is a control panel for my financial state.
+
+---
+
+## Purpose
+
+Right now financial data lives in separate places:
+- brokerage accounts
+- crypto exchanges
+- banking apps
+- manual spreadsheets
+- screenshots
+- memory
+
+Because of this, I cannot reliably answer simple questions:
+- my real net worth
+- risk exposure
+- position sizing
+- how much I actually spend
+- whether I am outperforming or underperforming
+
+MaxisLiquid exists to remove uncertainty.
+
+Primary objective:
+Create a single source of truth for my money.
+
+---
