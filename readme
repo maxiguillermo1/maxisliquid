@@ -34,3 +34,56 @@ Primary objective:
 Create a single source of truth for my money.
 
 ---
+
+## Tech Stack (recommended)
+
+### Frontend (dashboard UI)
+- Next.js (App Router) + React + TypeScript :contentReference[oaicite:0]{index=0}
+- Tailwind CSS + shadcn/ui (Radix-based components, copy-paste ownership model) :contentReference[oaicite:1]{index=1}
+- TanStack Query for server-state caching/sync :contentReference[oaicite:2]{index=2}
+- TanStack Table for tables (positions, orders, journal, expenses) (same ecosystem as TanStack Query) :contentReference[oaicite:3]{index=3}
+- TradingView Lightweight Charts for price charts (fast, small, client-side) :contentReference[oaicite:4]{index=4}
+
+### API + backend
+- Next.js Route Handlers / Server Actions (single codebase) :contentReference[oaicite:5]{index=5}
+- Auth.js (Next.js integration) :contentReference[oaicite:6]{index=6}
+
+### Data + storage
+- PostgreSQL as system-of-record (assets, trades, expenses)
+- TimescaleDB extension for time-series (prices, equity curve, metrics) :contentReference[oaicite:7]{index=7}
+- Prisma ORM (type-safe DB access + migrations) :contentReference[oaicite:8]{index=8}
+  - Alternative: Drizzle ORM (lightweight, SQL-forward) :contentReference[oaicite:9]{index=9}
+
+### Integrations (optional, pick what you actually use)
+- Plaid for bank transactions + categorization pipeline :contentReference[oaicite:10]{index=10}
+- CCXT for multi-exchange crypto market data / balances (if needed) :contentReference[oaicite:11]{index=11}
+- Alpaca for equities market data / account/order updates (if used) :contentReference[oaicite:12]{index=12}
+
+### Jobs + realtime
+- Background jobs: BullMQ + Redis (imports, sync, refreshes, recalc) (standard queue pattern; Redis required)
+- Realtime: WebSocket streams where supported (market data, order updates) :contentReference[oaicite:13]{index=13}
+
+### Observability
+- Sentry for errors + performance tracing :contentReference[oaicite:14]{index=14}
+- OpenTelemetry for vendor-neutral traces/metrics :contentReference[oaicite:15]{index=15}
+- PostHog for product analytics (events, funnels, feature flags if needed) :contentReference[oaicite:16]{index=16}
+
+### Testing (baseline)
+- Unit: Vitest
+- E2E: Playwright
+
+### Deployment (simple default)
+- Web: Vercel
+- DB: managed Postgres + Timescale support (provider-dependent)
+- Secrets: environment variables + encrypted secrets store
+
+---
+
+## What I Want to Know At All Times
+
+- my total net worth
+- how much capital is at risk
+- what trades I am in and why
+- what I am waiting to trade
+- how much I actually spend monthly
+- whether my behavior is improving
